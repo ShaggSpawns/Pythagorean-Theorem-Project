@@ -1,0 +1,12 @@
+Jackson Wilson (c) 2014
+
+This application was made with the help of these lovely websites -
+
+~ "The Java Tutorials" - http://docs.oracle.com/javase/tutorial/
+~  "Stack Overflow" - http://stackoverflow.com/
+_____________________________________________________________
+
+The History of Pythagoras was made with the help of -
+
+~ "Biography of Pythagoras" - http://www.mathopenref.com/pythagoras.html
+~ "Pythagoras" - http://plato.stanford.edu/entries/pythagoras/
