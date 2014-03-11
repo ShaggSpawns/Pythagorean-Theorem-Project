@@ -1,4 +1,4 @@
-package pythagoreanMain;
+package pythagoreanProject;
 
 import java.awt.Dimension;
 

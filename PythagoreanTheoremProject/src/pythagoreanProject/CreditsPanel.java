@@ -1,4 +1,4 @@
-package pythagoreanMain;
+package pythagoreanProject;
 
 import java.awt.GridLayout;
 import java.io.BufferedReader;
@@ -11,19 +11,18 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class PythagorasPanel extends JPanel {
+public class CreditsPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
-	public PythagorasPanel() {
-		setBorder(BorderFactory.createTitledBorder("The History of Pythagoras"));
+	public CreditsPanel() {
+		setBorder(BorderFactory.createTitledBorder("References"));
 		setLayout(new GridLayout(1,1));
-		JTextArea pythagoras = new JTextArea();
-		pythagoras.setEditable(true);
+		JTextArea credits = new JTextArea();
 		
 		FileReader FileReader = null;
 		
 		try {
-			FileReader = new FileReader("texts/pythagoras.txt");
+			FileReader = new FileReader("texts/credits.txt");
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
@@ -31,13 +30,13 @@ public class PythagorasPanel extends JPanel {
 		BufferedReader buffReader = new BufferedReader(FileReader);
 		
 		try {
-			pythagoras.read(buffReader, null);
+			credits.read(buffReader, null);
 			buffReader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
-		pythagoras.requestFocusInWindow();
-		add(new JScrollPane(pythagoras));
+		credits.requestFocusInWindow();
+		add(new JScrollPane(credits));
 	}
 }
