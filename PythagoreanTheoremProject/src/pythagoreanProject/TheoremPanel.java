@@ -118,14 +118,26 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 			// Given
 			g.setColor(new Color(50,100,0));
 			g.setFont(g.getFont().deriveFont(16.0f));
-			g.drawString("Given:    abc ~    a'b'c' ~    xza' ~    zyb'", 430, 25);
-			g.drawPolygon(triangleIcon(495,25));
-			g.drawPolygon(triangleIcon(556,25));
-			g.drawPolygon(triangleIcon(630,25));
-			g.drawPolygon(triangleIcon(697,25));
+			g.drawString("Given:", 430, 25);
+			g.drawPolygon(triangleIcon(456, 25));
+			g.drawString("abc ~", 458, 25);
+			g.drawPolygon(triangleIcon(499, 25));
+			g.drawString("a'b'c' ~", 501, 25);
+			g.drawPolygon(triangleIcon(548, 25));
+			g.drawString("xza' ~", 550, 25);
+			g.drawPolygon(triangleIcon(591, 25));
+			g.drawString("zyb'", 593, 25);
 			
 			g.setFont(g.getFont().deriveFont(12.0f));
-			g.drawString("1.) abc ~ a'b'c' ~ xza' ~ zyb'", 430, 80);
+			g.drawString("1.)", 430, 80);
+			g.drawPolygon(triangleIcon(456, 80));
+			g.drawString("abc ~", 458, 80);
+			g.drawPolygon(triangleIcon(499, 80));
+			g.drawString("a'b'c' ~", 501, 80);
+			g.drawPolygon(triangleIcon(548, 80));
+			g.drawString("xza' ~", 550, 80);
+			g.drawPolygon(triangleIcon(591, 80));
+			g.drawString("zyb'", 593, 80);
 			g.drawString("1.) Given", 615, 80);
 			
 			// Prove
@@ -138,9 +150,12 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 			
 			// Statements
 			g.setColor(Color.BLUE);
-			g.drawString("2.)  y         b'", 430, 130);
-			g.drawString("    --- = --- ", 430, 143);
-			g.drawString("      b         c", 430, 156);
+			g.drawString("2.)", 430, 130);
+			g.drawString("y", 455, 130);
+			g.drawString("b'", 478, 130);
+			g.drawString("--- = ---", 451, 143);
+			g.drawString("b", 455, 156);
+			g.drawString("c", 478, 156);
 			g.drawString("3.)  x         a'", 430, 180);
 			g.drawString("    --- = --- ", 430, 193);
 			g.drawString("      a         c", 430, 206);
