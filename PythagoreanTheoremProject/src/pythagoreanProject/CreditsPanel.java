@@ -17,22 +17,24 @@ public class CreditsPanel extends JPanel {
 	public CreditsPanel() {
 		setBorder(BorderFactory.createTitledBorder("References"));
 		setLayout(new GridLayout(1,1));
-		JTextArea credits = new JTextArea();
+		final JTextArea credits = new JTextArea();
+		credits.setBackground(getBackground());
+		credits.setEditable(false);
 		
 		FileReader FileReader = null;
 		
 		try {
 			FileReader = new FileReader("texts/credits.txt");
-		} catch (FileNotFoundException e1) {
+		} catch (final FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
 		
-		BufferedReader buffReader = new BufferedReader(FileReader);
+		final BufferedReader buffReader = new BufferedReader(FileReader);
 		
 		try {
 			credits.read(buffReader, null);
 			buffReader.close();
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			e.printStackTrace();
 		}
 		

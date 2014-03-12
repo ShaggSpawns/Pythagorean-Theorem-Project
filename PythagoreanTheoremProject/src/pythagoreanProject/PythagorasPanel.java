@@ -17,8 +17,10 @@ public class PythagorasPanel extends JPanel {
 	public PythagorasPanel() {
 		setBorder(BorderFactory.createTitledBorder("The History of Pythagoras"));
 		setLayout(new GridLayout(1,1));
+		//setBackground(Color.lightGray);
 		JTextArea pythagoras = new JTextArea();
-		pythagoras.setEditable(true);
+		pythagoras.setEditable(false);
+		pythagoras.setBackground(getBackground());
 		
 		FileReader FileReader = null;
 		
