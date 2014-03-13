@@ -45,7 +45,6 @@ public class CreditsPanel extends JPanel {
 		credits.requestFocusInWindow();
 		add(credits);
 		
-		
 		Cat c = new Cat();
 		c.setBounds(0,0,800,600);
 		add(c);
