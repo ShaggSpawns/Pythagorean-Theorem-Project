@@ -28,10 +28,12 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 	
 	public TheoremPanel() {
 		setLayout(null);
+		setBackground(Color.WHITE);
 		slider = new JSlider(JSlider.VERTICAL,1,9,1);
-		slider.setBounds(400, 62, 30, 428);
+		slider.setBounds(400, 68, 30, 415);
 		slider.setInverted(true);
 		slider.setFocusable(true);
+		slider.setOpaque(false);
 		slider.addChangeListener(this);
 		add(slider);
 		
@@ -45,6 +47,8 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 		final TheoremComponents tComponenents = new TheoremComponents();
 		tComponenents.setBounds(0, 0, 800, 600);
 		add(tComponenents);
+		
+		
 	}
 	
 	private class TheoremComponents extends JComponent {
@@ -110,23 +114,40 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 		@Override
 		protected void paintComponent(final Graphics g) {
 			// Triangles
-			g.drawPolygon(drawRightTriangle(165, 220, 180, 230, "NW"));
-			g.drawPolygon(drawRightTriangle(165, 220, 380, 230, "NW"));
-			g.setColor(getBackground());
-			//g.fillPolygon(drawRightTriangle(72, 135, 197, 197, "NW"));
+			g.drawPolygon(drawRightTriangle(104, 195, 180, 230, "NW"));
+			g.drawPolygon(drawRightTriangle(104, 195, 340, 230, "NW"));
+			g.drawLine(132, 230, 132, 125);
+			g.drawLine(132, 230, 89, 207);
+			g.drawLine(293, 230, 293, 125);
+			
+			// Labels
+			g.drawString("x", 95, 168);
+			g.drawString("y", 73, 213);
+			g.drawString("z", 108, 212);
+			g.drawString("a", 192, 136);
+			g.drawString("b", 134, 252);
+			g.drawString("c", 114, 115);
+			g.drawString("a", 350, 136);
+			g.drawString("b", 289, 252);
+			g.drawString("c", 280, 115);
+			g.drawString("a'", 298, 181);
+			g.drawString("b'", 262, 245);
+			g.drawString("c'", 252, 176);
+			g.drawString("a'", 138, 181);
+			g.drawString("b'", 100, 248);
 			
 			// Given
 			g.setColor(new Color(50,100,0));
 			g.setFont(g.getFont().deriveFont(16.0f));
 			g.drawString("Given:", 430, 25);
-			g.drawPolygon(triangleIcon(456, 25));
-			g.drawString("abc ~", 458, 25);
-			g.drawPolygon(triangleIcon(499, 25));
-			g.drawString("a'b'c' ~", 501, 25);
-			g.drawPolygon(triangleIcon(548, 25));
-			g.drawString("xza' ~", 550, 25);
-			g.drawPolygon(triangleIcon(591, 25));
-			g.drawString("zyb'", 593, 25);
+			g.drawPolygon(triangleIcon(486, 25));
+			g.drawString("abc ~", 488, 25);
+			g.drawPolygon(triangleIcon(540, 25));
+			g.drawString("a'b'c' ~", 542, 25);
+			g.drawPolygon(triangleIcon(603, 25));
+			g.drawString("xza' ~", 606, 25);
+			g.drawPolygon(triangleIcon(657, 25));
+			g.drawString("zyb'", 660, 25);
 			
 			g.setFont(g.getFont().deriveFont(12.0f));
 			g.drawString("1.)", 430, 80);
@@ -138,7 +159,7 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 			g.drawString("xza' ~", 550, 80);
 			g.drawPolygon(triangleIcon(591, 80));
 			g.drawString("zyb'", 593, 80);
-			g.drawString("1.) Given", 615, 80);
+			g.drawString("1.) Given", 630, 80);
 			
 			// Prove
 			g.setColor(Color.RED);
@@ -179,12 +200,12 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 			g.drawString("8.) Substitution Property", 615, 430);
 		}
 	}
-
+	
 	@Override
 	public void stateChanged(final ChangeEvent e) {
-		if (slider.getValue() != currentStep) {
+		//if (slider.getValue() != currentStep) {
 			System.out.println(slider.getValue());
-		}
+		//}
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package pythagoreanProject;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -17,7 +18,7 @@ public class PythagorasPanel extends JPanel {
 	public PythagorasPanel() {
 		setBorder(BorderFactory.createTitledBorder("The History of Pythagoras"));
 		setLayout(new GridLayout(1,1));
-		//setBackground(Color.lightGray);
+		setBackground(Color.WHITE);
 		JTextArea pythagoras = new JTextArea();
 		pythagoras.setEditable(false);
 		pythagoras.setBackground(getBackground());

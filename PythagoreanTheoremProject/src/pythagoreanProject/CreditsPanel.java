@@ -1,14 +1,16 @@
 package pythagoreanProject;
 
-import java.awt.GridLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class CreditsPanel extends JPanel {
@@ -16,7 +18,8 @@ public class CreditsPanel extends JPanel {
 	
 	public CreditsPanel() {
 		setBorder(BorderFactory.createTitledBorder("References"));
-		setLayout(new GridLayout(1,1));
+		setLayout(null);
+		setBackground(Color.WHITE);
 		final JTextArea credits = new JTextArea();
 		credits.setBackground(getBackground());
 		credits.setEditable(false);
@@ -37,8 +40,24 @@ public class CreditsPanel extends JPanel {
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
-		
+
+		credits.setBounds(5, 15, 760, 200);
 		credits.requestFocusInWindow();
-		add(new JScrollPane(credits));
+		add(credits);
+		
+		
+		Cat c = new Cat();
+		c.setBounds(0,0,800,600);
+		add(c);
+	}
+	
+	private class Cat extends JComponent {
+		private static final long serialVersionUID = 1L;
+		
+		@Override
+		protected void paintComponent(final Graphics g) {
+			ImageIcon i = new ImageIcon("images/cat.jpg");
+			i.paintIcon(this, g, 350, 260);
+		}
 	}
 }
