@@ -27,8 +27,8 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 	private static final long serialVersionUID = 1L;
 	
 	float a1 = 0.0f;
-	float a2 = 1.0f;
-	float a3 = 1.0f;
+	float a2 = 0.0f;
+	float a3 = 0.0f;
 	float a4 = 1.0f;
 	float a5 = 1.0f;
 	float a6 = 1.0f;
@@ -315,6 +315,11 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 			new ClearShow().paint(getGraphics());
 			currentStep = slider.getValue();
 			a1 = 0.0f;
+			a2 = 0.0f;
+			a3 = 0.0f;
+			a4 = 0.0f;
+			a5 = 0.0f;
+			a6 = 0.0f;
 			new Timer(20,new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					switch(currentStep) {
@@ -322,6 +327,7 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 						a1 += 0.05f;
 					    if (a1 >= 1.0f) {
 					        a1 = 1.0f;
+					        break;
 					    } else {
 					        repaint();
 					    }
