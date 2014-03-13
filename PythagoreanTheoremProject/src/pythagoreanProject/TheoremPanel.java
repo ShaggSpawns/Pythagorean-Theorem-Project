@@ -244,19 +244,23 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 		}
 	}
 	
-	private class Step1 {
+	private class Step1 implements ActionListener {
+		Timer t;
 		public Step1() {
 			alpha = 0.0f;
-			new Timer(5,new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				    alpha += 0.05f;
-				    if (alpha >= 1.0f) {
-				        alpha = 1.0f;
-				    } else {
-				        repaint();
-				    }
-				}
-			}).start();
+			t = new Timer(5, this);
+			t.start();
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			alpha += 0.05f;
+		    if (alpha >= 1.0f) {
+		        alpha = 1.0f;
+		        t.stop();
+		    } else {
+		        repaint();
+		    }
 		}
 	}
 
