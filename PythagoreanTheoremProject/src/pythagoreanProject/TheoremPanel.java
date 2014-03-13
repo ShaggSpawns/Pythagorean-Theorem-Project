@@ -26,7 +26,12 @@ import javax.swing.event.ChangeListener;
 public class TheoremPanel extends JPanel implements ChangeListener, ActionListener, MouseListener {
 	private static final long serialVersionUID = 1L;
 	
-	float alpha = 0.0f;
+	float a1 = 0.0f;
+	float a2 = 1.0f;
+	float a3 = 1.0f;
+	float a4 = 1.0f;
+	float a5 = 1.0f;
+	float a6 = 1.0f;
 	int currentStep = 1;
 	
 	final JSlider slider;
@@ -65,7 +70,7 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				g.drawLine(131, 229, 89, 207);
 				g.drawLine(293, 230, 293, 125);
 				g2.setStroke(new BasicStroke(1));
-				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
+				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a1));
 				
 				//Triangle abc
 				g.setColor(new Color(50,100,0));
@@ -93,6 +98,62 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				g.drawString("b'", 318, 384);
 				
 				g.drawString("Similar Triangles", 168, 484);
+				g.setColor(Color.BLUE);
+				g.setFont(getFont().deriveFont(16.0f));
+				// Proportion #1
+				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a2));
+				g.drawString("Equation #1", 70, 288);
+				g.drawString("y", 83, 310);
+				g.drawString("b'", 128, 310);
+				g.drawLine(75, 330, 91, 330);
+				g.drawString("=", 1, 1);
+				g.drawLine(1, 1, 1, 1);
+				g.drawString("b", 83, 350);
+				g.drawString("c", 128, 350);
+				
+				// Proportion #2
+				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a3));
+				g.drawString("Equation #2", 240, 288);
+				g.drawString("x", 1, 1);
+				g.drawString("a'", 1, 1);
+				g.drawLine(1, 1, 1, 1);
+				g.drawString("=", 1, 1);
+				g.drawLine(1, 1, 1, 1);
+				g.drawString("a", 1, 1);
+				g.drawString("c", 1, 1);
+				
+				// Equation #1
+				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a4));
+				g.drawString("b", 1, 1);
+				g.drawString("b'", 1, 1);
+				g.drawString("=", 1, 1);
+				g.drawString("c", 1, 1);
+				g.drawString("y", 1, 1);
+				
+				// Equation #2
+				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a5));
+				g.drawString("a", 1, 1);
+				g.drawString("a'", 1, 1);
+				g.drawString("=", 1, 1);
+				g.drawString("c", 1, 1);
+				g.drawString("x", 1, 1);
+				
+				// Equation #3
+				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a6));
+				g.drawString("a", 1, 1);
+				g.drawString("a'", 1, 1);
+				g.drawString("+", 1, 1);
+				g.drawString("b", 1, 1);
+				g.drawString("b'", 1, 1);
+				g.drawString("=", 1, 1);
+				g.drawString("c", 1, 1);
+				g.drawString("x", 1, 1);
+				g.drawString("+", 1, 1);
+				g.drawString("c", 1, 1);
+				g.drawString("y", 1, 1);
+				
+				// Set normal font
+				g.setFont(getFont().deriveFont(12));
 				g.setColor(Color.BLACK);
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1.0f));
 				
@@ -134,7 +195,7 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				g.drawPolygon(triangleIcon(548, 80));
 				g.drawString("xza' ~", 550, 80);
 				g.drawPolygon(triangleIcon(591, 80));
-				g.drawString("zyb'", 593, 80);
+				g.drawString("z y b' ", 593, 80);
 				g.drawString("1.) Given", 630, 80);
 				
 				// Prove
@@ -153,9 +214,12 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				g.drawString("--- = ---", 451, 143);
 				g.drawString("b", 455, 156);
 				g.drawString("c", 478, 156);
-				g.drawString("3.)  x         a'", 430, 180);
-				g.drawString("    --- = --- ", 430, 193);
-				g.drawString("      a         c", 430, 206);
+				g.drawString("3.)", 430, 180);
+				g.drawString("x", 455, 180);
+				g.drawString("a'", 478, 180);
+				g.drawString("--- = ---", 451, 193);
+				g.drawString("a", 454, 206);
+				g.drawString("c", 478, 206);
 				g.drawString("4.) bb' = cy", 430, 230);
 				g.drawString("5.) aa' = cx", 430, 280);
 				g.drawString("6.) aa' + bb' = cx + cy", 430, 330);
@@ -244,175 +308,147 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 		}
 	}
 	
-	private class Step1 implements ActionListener {
-		Timer t;
-		public Step1() {
-			alpha = 0.0f;
-			t = new Timer(5, this);
-			t.start();
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
-			alpha += 0.05f;
-		    if (alpha >= 1.0f) {
-		        alpha = 1.0f;
-		        t.stop();
-		    } else {
-		        repaint();
-		    }
-		}
-	}
-
-	private class Step2 {
-		public Step2() {
-			new Timer(5,new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-				}
-			}).start();
-		}
-	}
-
-	private class Step3 {
-		public Step3() {
-			new Timer(5,new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				    
-				}
-			}).start();
-		}
-	}
-
-	private class Step4 {
-		public Step4() {
-			new Timer(5,new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				    
-				}
-			}).start();
-		}
-	}
-
-	private class Step5 {
-		public Step5() {
-			new Timer(5,new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				    
-				}
-			}).start();
-		}
-	}
-
-	private class Step6 {
-		public Step6() {
-			new Timer(5,new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				    
-				}
-			}).start();
-		}
-	}
-
-	private class Step7 {
-		public Step7() {
-			new Timer(5,new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				    
-				}
-			}).start();
-		}
-	}
-
-	private class Step8 {
-		public Step8() {
-			new Timer(5,new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-				}
-			}).start();
-		}
-	}
-
-	private class Step9 {
-		public Step9() {
-			new Timer(5,new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				    
-				}
-			}).start();
-		}
-	}
-	
 	@Override
 	public void stateChanged(final ChangeEvent e) {
 		System.out.println(slider.getValue());
-		currentStep = slider.getValue();
-		
-		new ClearShow().paint(getGraphics());
-		switch(currentStep) {
-		case 1:
-			new Step1();
-			break;
-		case 2:
-			new Step2();
-			break;
-		case 3:
-			new Step3();
-			break;
-		case 4:
-			new Step4();
-			break;
-		case 5:
-			new Step5();
-			break;
-		case 6:
-			new Step6();
-			break;
-		case 7:
-			new Step7();
-			break;
-		case 8:
-			new Step8();
-			break;
-		case 9:
-			new Step9();
-			break;
+		if (currentStep != slider.getValue()) {
+			new ClearShow().paint(getGraphics());
+			currentStep = slider.getValue();
+			a1 = 0.0f;
+			new Timer(20,new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					switch(currentStep) {
+					case 1:
+						a1 += 0.05f;
+					    if (a1 >= 1.0f) {
+					        a1 = 1.0f;
+					    } else {
+					        repaint();
+					    }
+						break;
+					case 2:
+						a2 += 0.05f;
+					    if (a2 >= 1.0f) {
+					        a2 = 1.0f;
+					    } else {
+					        repaint();
+					    }
+						break;
+					case 3:
+						a3 += 0.05f;
+					    if (a3 >= 1.0f) {
+					        a3 = 1.0f;
+					    } else {
+					        repaint();
+					    }
+						break;
+					case 4:
+						a4 += 0.05f;
+					    if (a4 >= 1.0f) {
+					        a4 = 1.0f;
+					    } else {
+					        repaint();
+					    }
+						break;
+					case 5:
+						a5 += 0.05f;
+					    if (a5 >= 1.0f) {
+					        a5 = 1.0f;
+					    } else {
+					        repaint();
+					    }
+						break;
+					case 6:
+						a6 += 0.05f;
+					    if (a6 >= 1.0f) {
+					        a6 = 1.0f;
+					    } else {
+					        repaint();
+					    }
+						break;
+					case 7:
+						break;
+					case 8:
+						break;
+					case 9:
+						break;
+					}
+				}
+			}).start();
 		}
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		new ClearShow().paint(getGraphics());
-		switch(currentStep) {
-		case 1:
-			new Step1();
-			break;
-		case 2:
-			new Step2();
-			break;
-		case 3:
-			new Step3();
-			break;
-		case 4:
-			new Step4();
-			break;
-		case 5:
-			new Step5();
-			break;
-		case 6:
-			new Step6();
-			break;
-		case 7:
-			new Step7();
-			break;
-		case 8:
-			new Step8();
-			break;
-		case 9:
-			new Step9();
-			break;
-		}
+		currentStep = slider.getValue();
+		a1 = 0.0f;
+		a2 = 0.0f;
+		a3 = 0.0f;
+		a4 = 0.0f;
+		a5 = 0.0f;
+		a6 = 0.0f;
+		
+		new Timer(20,new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				switch(currentStep) {
+				case 1:
+					a1 += 0.05f;
+				    if (a1 >= 1.0f) {
+				        a1 = 1.0f;
+				    } else {
+				        repaint();
+				    }
+					break;
+				case 2:
+					a2 += 0.05f;
+				    if (a2 >= 1.0f) {
+				        a2 = 1.0f;
+				    } else {
+				        repaint();
+				    }
+					break;
+				case 3:
+					a3 += 0.05f;
+				    if (a3 >= 1.0f) {
+				        a3 = 1.0f;
+				    } else {
+				        repaint();
+				    }
+					break;
+				case 4:
+					a4 += 0.05f;
+				    if (a4 >= 1.0f) {
+				        a4 = 1.0f;
+				    } else {
+				        repaint();
+				    }
+					break;
+				case 5:
+					a5 += 0.05f;
+				    if (a5 >= 1.0f) {
+				        a5 = 1.0f;
+				    } else {
+				        repaint();
+				    }
+					break;
+				case 6:
+					a6 += 0.05f;
+				    if (a6 >= 1.0f) {
+				        a6 = 1.0f;
+				    } else {
+				        repaint();
+				    }
+					break;
+				case 7:
+					break;
+				case 8:
+					break;
+				case 9:
+					break;
+				}
+			}
+		}).start();
 	}
 
 	@Override
