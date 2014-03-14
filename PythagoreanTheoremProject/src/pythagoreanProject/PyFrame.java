@@ -25,5 +25,7 @@ public class PyFrame {
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		TheoremPanel.replayBtn.doClick();
+		TheoremPanel.slider.setValue(6);
 	}
 }
