@@ -9,11 +9,13 @@ import java.awt.Polygon;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.font.TextAttribute;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.text.AttributedString;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -23,7 +25,7 @@ import javax.swing.Timer;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class TheoremPanel extends JPanel implements ChangeListener, ActionListener, MouseListener {
+public class TheoremPanel extends JPanel implements ChangeListener, ActionListener/*, MouseListener*/ {
 	private static final long serialVersionUID = 1L;
 	
 	float a1 = 0.0f;
@@ -36,11 +38,8 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 	float a7 = 0.0f;
 	float a8 = 0.0f;
 	float a9 = 0.0f;
-	float a9C = 0.0f;
-	int PyX = 78;
-	int PyH = 365;
-	int PyC = 85;
 	int currentStep = 1;
+	BufferedImage i = null;
 	
 	public static JSlider slider;
 	public static JButton replayBtn;
@@ -61,7 +60,12 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 		replayBtn.setFocusable(false);
 		replayBtn.addActionListener(this);
 		add(replayBtn);
-		addMouseListener(this);
+		//addMouseListener(this);
+		try {
+			i = ImageIO.read(new File("images/arrowImg.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		JComponent j = new JComponent() {
 			private static final long serialVersionUID = 1L;
@@ -193,13 +197,17 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				g.drawString(proofShow().getIterator(), 210, 358);
 				g2.setStroke(new BasicStroke(2));
 				g.drawPolygon(drawRightTriangle(104, 195, 126, 470, "NW"));
-				g.drawLine(PyX, PyH, PyX, 470);
+				final float dash1[] = {10.0f};
+				g2.setStroke(new BasicStroke(1.0f,
+                        BasicStroke.CAP_BUTT,
+                        BasicStroke.JOIN_MITER,
+                        10.0f, dash1, 0.0f));
+				g.drawLine(78, 365, 78, 470);
 				g2.setStroke(new BasicStroke(1));
-				g.drawString("a", 135, 380);
-				g.drawString("b", 68, 487);
-				g.drawString("c", 52, 379);
-				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a9C));
-				g.drawString("c'", PyC, 411);
+				g.drawString("a = a'", 135, 380);
+				g.drawString("b = b'", 63, 492);
+				g.drawString("c = c'", 26, 379);
+				g.drawImage(i, 85, 392, null);
 				
 				// Set normal font
 				g.setFont(getFont().deriveFont(12));
@@ -386,7 +394,7 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 	
 	@Override
 	public void stateChanged(final ChangeEvent e) {
-		System.out.println(slider.getValue());
+		//System.out.println(slider.getValue());
 		if (currentStep != slider.getValue()) {
 			currentStep = slider.getValue();
 			switch(currentStep) {
@@ -442,7 +450,6 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				a6_1 = 1.0f;
 				a7 = 0.0f;
 				a9 = 0.0f;
-				a9C = 0.0f;
 				repaint();
 				break;
 			case 9:
@@ -450,14 +457,12 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				a3 = 0.0f;
 				a6_1 = 0.0f;
 				a8 = 0.0f;
-				PyX = 78;
-				PyH = 365;
 				repaint();
 				break;
 			default:
 				break;
 			}
-			new Timer(20,new ActionListener() {
+			new Timer(25,new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					switch(currentStep) {
 					case 1:
@@ -529,29 +534,6 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 						break;
 					case 9:
 						a9 += 0.05f;
-						a9C -= 0.05f;
-						PyX += 1;
-						PyH -= 2;
-						//if (PyH <= 300) {
-							//PyH -= 1;
-						//} else {
-							//PyH -= 2;
-						//}
-						if (PyH <= 275) {
-							PyH = 275;
-						} else {
-						    repaint();
-						}
-						if (PyX >= 127) {
-							PyX = 127;
-						} else {
-						    repaint();
-						}
-					    if (a9C <= 0.0f) {
-					    	a9C = 0.0f;
-					    } else {
-					        repaint();
-					    }
 					    if (a9 >= 1.0f) {
 							a9 = 1.00f;
 					    } else {
@@ -602,10 +584,9 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 			break;
 		case 9:
 			a9 = 0.0f;
-			a9C = 0.0f;
 			break;
 		}
-		new Timer(20,new ActionListener() {
+		new Timer(25,new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				switch(currentStep) {
 				case 1:
@@ -684,10 +665,8 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 					break;
 				case 9:
 					a9 += 0.05f;
-					a9C += 0.05f;
 				    if (a9 >= 1.0f) {
 						a9 = 1.00f;
-						a9C = 1.00f;
 				    } else {
 				        repaint();
 				    }
@@ -696,6 +675,7 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 			}
 		}).start();
 	}
+	/*
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -720,5 +700,5 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 	@Override
 	public void mouseExited(MouseEvent e) {
 		
-	}
+	}*/
 }

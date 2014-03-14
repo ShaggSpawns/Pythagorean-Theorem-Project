@@ -26,6 +26,6 @@ public class PyFrame {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		TheoremPanel.replayBtn.doClick();
-		TheoremPanel.slider.setValue(9);
+		TheoremPanel.slider.setValue(1);
 	}
 }
