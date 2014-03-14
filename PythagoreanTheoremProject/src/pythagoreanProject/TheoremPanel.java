@@ -111,88 +111,90 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				
 				// Proportion #1
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a2));
-				g.setColor(Color.MAGENTA);
-				g.setFont(getFont().deriveFont(18.0f));
-				g.drawString("Equation One", 55, 288);
+				g.setColor(Color.ORANGE);
+				g.drawString(e1().getIterator(), 66, 284);
 				g.setColor(Color.BLUE);
 				g.setFont(getFont().deriveFont(16.0f));
 				g.drawString("y", 83, 310);
-				g.drawString("b'", 128, 310);
-				g.drawLine(75, 330, 91, 330);
-				g.drawString("=", 1, 1);
-				g.drawLine(1, 1, 1, 1);
-				g.drawString("b", 83, 350);
-				g.drawString("c", 128, 350);
+				g.drawString("b'", 129, 310);
+				g.drawLine(78, 320, 93, 320);
+				g.drawString("=", 105, 326);
+				g.drawLine(125, 320, 140, 320);
+				g.drawString("b", 82, 342);
+				g.drawString("c", 129, 342);
 				
 				// Proportion #2
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a3));
-				g.setColor(Color.MAGENTA);
-				g.setFont(getFont().deriveFont(18.0f));
-				g.drawString("Equation Two", 240, 288);
+				g.setColor(Color.ORANGE);
+				g.drawString(e2().getIterator(), 241, 284);
 				g.setColor(Color.BLUE);
-				g.setFont(getFont().deriveFont(16.0f));
-				g.drawString("x", 1, 1);
-				g.drawString("a'", 1, 1);
-				g.drawLine(1, 1, 1, 1);
-				g.drawString("=", 1, 1);
-				g.drawLine(1, 1, 1, 1);
-				g.drawString("a", 1, 1);
-				g.drawString("c", 1, 1);
+				g.drawString("x", 258, 310);
+				g.drawString("a'", 304, 310);
+				g.drawLine(253, 320, 268, 320);
+				g.drawString("=", 280, 326);
+				g.drawLine(300, 320, 315, 320);
+				g.drawString("a", 257, 342);
+				g.drawString("c", 304, 342);
 				
 				// Equation #1
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a4));
-				g.drawString("b", 1, 1);
-				g.drawString("b'", 1, 1);
-				g.drawString("=", 1, 1);
-				g.drawString("c", 1, 1);
-				g.drawString("y", 1, 1);
+				g.drawString("b", 77, 380);
+				g.drawString("b'", 87, 380);
+				g.drawString("=", 105, 380);
+				g.drawString("c", 123, 380);
+				g.drawString("y", 133, 380);
 				
 				// Equation #2
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a5));
-				g.drawString("a", 1, 1);
-				g.drawString("a'", 1, 1);
-				g.drawString("=", 1, 1);
-				g.drawString("c", 1, 1);
-				g.drawString("x", 1, 1);
+				g.drawString("a", 252, 380);
+				g.drawString("a'", 262, 380);
+				g.drawString("=", 280, 380);
+				g.drawString("c", 298, 380);
+				g.drawString("x", 308, 380);
 				
 				// Equation #3.0
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a6_1));
-				g.drawString("a", 1, 1);
-				g.drawString("a'", 1, 1);
-				g.drawString("+", 1, 1);
-				g.drawString("b", 1, 1);
-				g.drawString("b'", 1, 1);
-				g.drawString("=", 1, 1);
+				g.setColor(Color.ORANGE);
+				g.drawString(e3().getIterator(), 152, 382);
+				g.setColor(Color.BLUE);
+				g.drawString("a", 116, 423);
+				g.drawString("a'", 126, 423);
+				g.drawString("+", 144, 423);
+				g.drawString("b", 162, 423);
+				g.drawString("b'", 172, 423);
+				g.drawString("=", 190, 423);
 				
-				// Equation #3.1
+				// Equation #3.1 (Step 6)
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a6_2));
-				g.drawString("c", 1, 1);
-				g.drawString("x", 1, 1);
-				g.drawString("+", 1, 1);
-				g.drawString("c", 1, 1);
-				g.drawString("y", 1, 1);
+				g.drawString("c", 208, 423);
+				g.drawString("x", 218, 423);
+				g.drawString("+", 236, 423);
+				g.drawString("c", 254, 423);
+				g.drawString("y", 264, 423);
 				
 				// Equation #3.2 (Step 7)
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a7));
-				g.drawString("c", 1, 1);
-				g.drawString("(", 1, 1);
-				g.drawString("x", 1, 1);
-				g.drawString("+", 1, 1);
-				g.drawString("y", 1, 1);
-				g.drawString(")", 1, 1);
+				g.drawString("c", 208, 423);
+				g.drawString("(", 218, 423);
+				g.drawString("x", 228, 423);
+				g.drawString("+", 246, 423);
+				g.drawString("y", 264, 423);
+				g.drawString(")", 274, 423);
 				
 				// Equation #3.3 (Step 8)
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a8));
-				g.drawString("c", 1, 1);
-				g.drawString("c'", 1, 1);
+				g.drawString("c", 208, 423);
+				g.drawString("c'", 218, 423);
 				
 				// Pythagorean Theorem
 				g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, a9));
 				g.setColor(Color.RED);
-				g.drawString(pyTheorem().getIterator(), 160, 294);
-				g.drawString(proofShow().getIterator(), 210, 332);
+				g.drawString(pyTheorem().getIterator(), 160, 320);
+				g.drawString(proofShow().getIterator(), 210, 358);
+				g2.setStroke(new BasicStroke(2));
 				g.drawPolygon(drawRightTriangle(104, 195, 126, 470, "NW"));
 				g.drawLine(PyX, PyH, PyX, 470);
+				g2.setStroke(new BasicStroke(1));
 				g.drawString("a", 135, 380);
 				g.drawString("b", 68, 487);
 				g.drawString("c", 52, 379);
@@ -240,10 +242,10 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				g.drawPolygon(triangleIcon(499, 80));
 				g.drawString("a'b'c' ~", 501, 80);
 				g.drawPolygon(triangleIcon(548, 80));
-				g.drawString("xza' ~", 550, 80);
-				g.drawPolygon(triangleIcon(591, 80));
-				g.drawString("z y b' ", 593, 80);
-				g.drawString("1.) Given", 630, 80);
+				g.drawString("x z a' ~", 550, 80);
+				g.drawPolygon(triangleIcon(597, 80));
+				g.drawString("z y b' ", 599, 80);
+				g.drawString("1.) Given", 636, 80);
 				
 				// Prove
 				g.setColor(Color.RED);
@@ -274,11 +276,11 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				g.drawString("8.) aa' + bb' = cc'", 430, 430);
 				
 				// Reasons
-				g.drawString("2.) If similar triangles,", 615, 130);
-				g.drawString("     then their sides are", 615, 143);
+				g.drawString("2.) If  similar  triangles,", 615, 130);
+				g.drawString("     then  their  sides  are", 615, 143);
 				g.drawString("     proportional.", 615, 156);
-				g.drawString("3.) If similar triangles,", 615, 180);
-				g.drawString("     then their sides are", 615, 193);
+				g.drawString("3.) If  similar  triangles,", 615, 180);
+				g.drawString("     then  their  sides  are", 615, 193);
 				g.drawString("     proportional.", 615, 206);
 				g.drawString("4.) Transitive Property", 615, 230);
 				g.drawString("5.) Transitive Property", 615, 280);
@@ -364,6 +366,24 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 		return as;
 	}
 	
+	private AttributedString e1() {
+		AttributedString as = new AttributedString("Equation 1");
+		as.addAttribute(TextAttribute.SIZE, 18);
+		return as;
+	}
+	
+	private AttributedString e2() {
+		AttributedString as = new AttributedString("Equation 2");
+		as.addAttribute(TextAttribute.SIZE, 18);
+		return as;
+	}
+	
+	private AttributedString e3() {
+		AttributedString as = new AttributedString("Equation 3");
+		as.addAttribute(TextAttribute.SIZE, 18);
+		return as;
+	}
+	
 	@Override
 	public void stateChanged(final ChangeEvent e) {
 		System.out.println(slider.getValue());
@@ -401,9 +421,10 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 			case 6:
 				a2 = 1.0f;
 				a3 = 1.0f;
-				a6_1 = 1.0f;
 				a4 = 0.0f;
 				a5 = 0.0f;
+				a6_1 = 0.0f;
+				a6_2 = 0.0f;
 				a7 = 0.0f;
 				repaint();
 				break;
@@ -412,12 +433,14 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				a3 = 1.0f;
 				a6_1 = 1.0f;
 				a6_2 = 0.0f;
+				a8 = 0.0f;
 				repaint();
 				break;
 			case 8:
 				a2 = 1.0f;
 				a3 = 1.0f;
 				a6_1 = 1.0f;
+				a7 = 0.0f;
 				a9 = 0.0f;
 				a9C = 0.0f;
 				repaint();
@@ -427,6 +450,8 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				a3 = 0.0f;
 				a6_1 = 0.0f;
 				a8 = 0.0f;
+				PyX = 78;
+				PyH = 365;
 				repaint();
 				break;
 			default:
@@ -479,7 +504,7 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 					case 6:
 						a6_1 += 0.05f;
 						a6_2 += 0.05f;
-					    if (a6_1 >= 1.0f) {
+					    if (a6_1 >= 1.0f && a6_2 >= 1.0f) {
 					        a6_1 = 1.0f;
 							a6_2 = 1.0f;
 					    } else {
@@ -504,13 +529,34 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 						break;
 					case 9:
 						a9 += 0.05f;
-						a9C += 0.05f;
-					    if (a9 >= 1.0f) {
-							a9 = 1.00f;
-							a9C = 1.00f;
+						a9C -= 0.05f;
+						PyX += 1;
+						PyH -= 2;
+						//if (PyH <= 300) {
+							//PyH -= 1;
+						//} else {
+							//PyH -= 2;
+						//}
+						if (PyH <= 275) {
+							PyH = 275;
+						} else {
+						    repaint();
+						}
+						if (PyX >= 127) {
+							PyX = 127;
+						} else {
+						    repaint();
+						}
+					    if (a9C <= 0.0f) {
+					    	a9C = 0.0f;
 					    } else {
 					        repaint();
 					    }
+					    if (a9 >= 1.0f) {
+							a9 = 1.00f;
+					    } else {
+						    repaint();
+						}
 						break;
 					}
 				}
@@ -520,7 +566,6 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//new ClearShow().paint(getGraphics());
 		switch(currentStep) {
 		case 1:
 			a1 = 0.0f;
