@@ -1,6 +1,4 @@
-Jackson Wilson (c) 2014
-
-This application was made with the help of these lovely websites -
+This application was developed by Jackson Wilson 2014 and made with the help of these lovely websites -
 
 ~ "The Java Tutorials" - http://docs.oracle.com/javase/tutorial/
 ~  "Stack Overflow" - http://stackoverflow.com/
@@ -10,3 +8,8 @@ The History of Pythagoras was made with the help of -
 
 ~ "Biography of Pythagoras" - http://www.mathopenref.com/pythagoras.html
 ~ "Pythagoras" - http://plato.stanford.edu/entries/pythagoras/
+_____________________________________________________________
+
+The Pythagorean Theorem Proof #13 and many more are found on -
+
+~ "Cut The Knot" - http://www.cut-the-knot.org/pythagoras/index.shtml

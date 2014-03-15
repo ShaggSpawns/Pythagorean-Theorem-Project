@@ -30,7 +30,7 @@ public class CreditsPanel extends JPanel {
 			e.printStackTrace();
 		}
 
-		credits.setBounds(5, 15, 760, 200);
+		credits.setBounds(5, 15, 760, 250);
 		credits.requestFocusInWindow();
 		add(credits);
 		
@@ -44,7 +44,7 @@ public class CreditsPanel extends JPanel {
 		
 		@Override
 		protected void paintComponent(final Graphics g) {
-			ResourceGetter.catImg().paintIcon(this, g, 350, 260);
+			ResourceGetter.catImg().paintIcon(this, g, 350, 270);
 		}
 	}
 }

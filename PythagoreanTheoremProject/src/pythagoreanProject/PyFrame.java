@@ -17,7 +17,7 @@ public class PyFrame {
 		final CreditsPanel creditTab = new CreditsPanel();
 		
 		tPane.setFocusable(false);
-		tPane.addTab("Pythagorean Theorem #13",theoremTab);
+		tPane.addTab("Pythagorean Theorem Proof #13",theoremTab);
 		tPane.addTab("About Pythagoras", pythagorasTab);
 		tPane.addTab("Credits", creditTab);
 		
