@@ -57,6 +57,8 @@ public class CreditsPanel extends JPanel {
 		@Override
 		protected void paintComponent(final Graphics g) {
 			ResourceGetter.catImg().paintIcon(this, g, 350, 270);
+			g.setFont(getFont().deriveFont(9.0f));
+			g.drawString("http://www.felinest.com/images/cartoon-cats-7.jpg", 500, 524);
 		}
 	}
 }
