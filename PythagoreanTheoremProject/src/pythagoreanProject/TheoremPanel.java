@@ -10,13 +10,8 @@ import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.font.TextAttribute;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.text.AttributedString;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -39,7 +34,6 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 	float a8 = 0.0f;
 	float a9 = 0.0f;
 	int currentStep = 1;
-	BufferedImage i = null;
 	
 	public static JSlider slider;
 	public static JButton replayBtn;
@@ -55,17 +49,12 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 		slider.addChangeListener(this);
 		add(slider);
 		
-		replayBtn = new JButton(new ImageIcon("images/replayImg.png"));
+		replayBtn = new JButton(ResourceGetter.replayButtonIcon());
 		replayBtn.setBounds(360, 480, 30, 30);
 		replayBtn.setFocusable(false);
 		replayBtn.addActionListener(this);
 		add(replayBtn);
 		//addMouseListener(this);
-		try {
-			i = ImageIO.read(new File("images/arrowImg.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
 		JComponent j = new JComponent() {
 			private static final long serialVersionUID = 1L;
@@ -207,7 +196,7 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 				g.drawString("a = a'", 135, 380);
 				g.drawString("b = b'", 63, 492);
 				g.drawString("c = c'", 26, 379);
-				g.drawImage(i, 85, 392, null);
+				g.drawImage(ResourceGetter.arrowImage(), 85, 392, null);
 				
 				// Set normal font
 				g.setFont(getFont().deriveFont(12));

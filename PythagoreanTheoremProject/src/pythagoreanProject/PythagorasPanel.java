@@ -3,8 +3,6 @@ package pythagoreanProject;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.BorderFactory;
@@ -23,20 +21,12 @@ public class PythagorasPanel extends JPanel {
 		pythagoras.setEditable(false);
 		pythagoras.setBackground(getBackground());
 		
-		FileReader FileReader = null;
-		
-		try {
-			FileReader = new FileReader("texts/pythagoras.txt");
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
-		
-		BufferedReader buffReader = new BufferedReader(FileReader);
+		final BufferedReader buffReader = new BufferedReader(ResourceGetter.pythagorasText());
 		
 		try {
 			pythagoras.read(buffReader, null);
 			buffReader.close();
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			e.printStackTrace();
 		}
 		
