@@ -10,9 +10,17 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+/**
+ * Builds the credits panel with a JTextArea with its contents from credits.txt and draws a cat on the screen.
+ * @author Jackson Wilson (c) 2014
+ *
+ */
 public class CreditsPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Builds the credits panel with a JTextArea with its contents from credits.txt and draws a cat on the screen.
+	 */
 	public CreditsPanel() {
 		setBorder(BorderFactory.createTitledBorder("References"));
 		setLayout(null);
@@ -39,6 +47,10 @@ public class CreditsPanel extends JPanel {
 		add(c);
 	}
 	
+	/**
+	 * Creates a JComponent of a cat image onto the screen.
+	 * @author Jackson Wilson (c) 2014
+	 */
 	private class Cat extends JComponent {
 		private static final long serialVersionUID = 1L;
 		

@@ -8,6 +8,10 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+/**
+ * Gets the resources used for this application
+ * @author Jackson Wilson (c) 2014
+ */
 public class ResourceGetter {
 	
 	// Arrow Image

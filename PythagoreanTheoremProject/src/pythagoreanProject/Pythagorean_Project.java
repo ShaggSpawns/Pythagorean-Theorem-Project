@@ -6,7 +6,15 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import javax.swing.WindowConstants;
 
-public class PyFrame {
+/**
+ * Creates a 800 x 600 JFrame with three tabs (Pythagorean Theorem Project, About Pythagoras, and Credits)
+ * @author Jackson Wilson (c) 2014
+ */
+public class Pythagorean_Project {
+	/**
+	 * Main method for this application
+	 * @param args
+	 */
 	public static void main(final String[] args) {
 		final JFrame frame = new JFrame("Pythagorean Theorem Project");
 		frame.setMinimumSize(new Dimension(800, 600));

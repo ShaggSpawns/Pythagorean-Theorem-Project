@@ -10,9 +10,16 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * Builds the pythagoras panel with a JTextArea with its contents from pythagoras.txt
+ * @author Jackson Wilson (c) 2014
+ */
 public class PythagorasPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * Builds the pythagoras panel with a JTextArea with its contents from pythagoras.txt
+	 */
 	public PythagorasPanel() {
 		setBorder(BorderFactory.createTitledBorder("The History of Pythagoras"));
 		setLayout(new GridLayout(1,1));

@@ -20,6 +20,10 @@ import javax.swing.Timer;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+/**
+ * Builds the theorem panel with proof 13 and a slider bar to display different steps off to the side
+ * @author Jackson Wilson (c) 2014
+ */
 public class TheoremPanel extends JPanel implements ChangeListener, ActionListener/*, MouseListener*/ {
 	private static final long serialVersionUID = 1L;
 	
@@ -38,6 +42,9 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 	public static JSlider slider;
 	public static JButton replayBtn;
 	
+	/**
+	 * Builds the theorem panel with proof 13 and a slider bar to display different steps off to the side
+	 */
 	public TheoremPanel() {
 		setLayout(null);
 		setBackground(Color.WHITE);
@@ -58,7 +65,7 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 		
 		JComponent j = new JComponent() {
 			private static final long serialVersionUID = 1L;
-
+			
 			public void paintComponent(final Graphics g) {
 				Graphics2D g2 = (Graphics2D) g;
 				g2.setStroke(new BasicStroke(2));
@@ -381,6 +388,9 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 		return as;
 	}
 	
+	/**
+	 * Handles the state change of the JSlider
+	 */
 	@Override
 	public void stateChanged(final ChangeEvent e) {
 		//System.out.println(slider.getValue());
@@ -534,7 +544,10 @@ public class TheoremPanel extends JPanel implements ChangeListener, ActionListen
 			}).start();
 		}
 	}
-
+	
+	/**
+	 * Handles the action event from the replay button
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(currentStep) {
